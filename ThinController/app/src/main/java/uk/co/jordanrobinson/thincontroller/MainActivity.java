@@ -2,6 +2,7 @@ package uk.co.jordanrobinson.thincontroller;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -46,6 +47,11 @@ public class MainActivity extends PreferenceActivity {
         super.onPostCreate(savedInstanceState);
 
         setupSimplePreferencesScreen();
+
+        //start the background service
+        final Intent intent = new Intent(this, ThinControllerService.class);
+        startService(intent);
+
     }
 
     /**
