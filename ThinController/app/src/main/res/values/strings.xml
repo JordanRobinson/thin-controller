@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Thin Controller</string>
+    <string name="log_tag">TC</string>
 </resources>
