@@ -1,9 +1,11 @@
 package uk.co.jordanrobinson.thincontroller;
 
 import android.annotation.TargetApi;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -17,6 +19,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
+import android.util.Log;
 
 
 import java.util.List;
@@ -41,17 +44,23 @@ public class MainActivity extends PreferenceActivity {
      */
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //start the background service
+        Log.d("TC", "hitting main onCreate");
+        final Intent intent = new Intent(this, ThinControllerService.class);
+        startService(intent);
+    }
+
+    //TODO: clean this class up a lot, remove the default stuff
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
         setupSimplePreferencesScreen();
-
-        //start the background service
-        final Intent intent = new Intent(this, ThinControllerService.class);
-        startService(intent);
-
     }
 
     /**
