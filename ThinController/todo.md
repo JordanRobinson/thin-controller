@@ -4,6 +4,9 @@ make a service class
 start the service class (do something like log every minute)
 capture a headphone event in the service class
 make a sound whenever the headphone button is pressed ( <- super important)
+
+--- currently about here ---
+
 start automating things (start with music play/pause or something)
 start preferencing stuff up
 
